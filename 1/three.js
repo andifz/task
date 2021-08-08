@@ -51,13 +51,15 @@ let orders = [
   },
 ];
 
-// #1.
-for (let i = 0; i < orders.length; i++) {
-  if (
-    orders[i].created_at === "2018-02-17T03:24:12" ||
-    orders[i].created_at === "2018-02-20T13:10:32" ||
-    orders[i].created_at === "2018-02-28T15:20:43"
-  ) {
-    console.log(orders[i]);
-  }
+let nameItems = orders
+  .map((a) => {
+    a.total = a.items.map((b) => b.qty * b.price).reduce((c, d) => c + d);
+    return a;
+  })
+  .filter((a) => a.total < 300000)
+  .map((a) => a.customer.name);
+
+function removeDuplicate(name) {
+  return name.filter((value, index) => name.indexOf(value) === index);
 }
+console.log(removeDuplicate(nameItems));

@@ -51,13 +51,15 @@ let orders = [
   },
 ];
 
-// #1.
+const price = [];
 for (let i = 0; i < orders.length; i++) {
-  if (
-    orders[i].created_at === "2018-02-17T03:24:12" ||
-    orders[i].created_at === "2018-02-20T13:10:32" ||
-    orders[i].created_at === "2018-02-28T15:20:43"
-  ) {
-    console.log(orders[i]);
+  if (orders[i].customer.name === "Ari") {
+    for (let a = 0; a < orders[i].items.length; a++) {
+      let barang = orders[i].items[a].price;
+      price.push(barang);
+    }
   }
 }
+
+let total = price.reduce((a, b) => a + b);
+console.log(total);
