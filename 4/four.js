@@ -97,8 +97,36 @@ for (let a = 0; a < data.length; a++) {
 // 2
 for (let a = 0; a < data.length; a++) {
   if (data[a]["articles:"][0] !== undefined) {
-    console.log(data[a].username);
+    // console.log(data[a].username);
   }
 }
 
 // 3
+
+for (let a = 0; a < data.length; a++) {
+  let dataName = data[a].profile.full_name;
+  let name = dataName.toLowerCase();
+  let search = /annis/;
+  let searchName = name.match(search);
+  if ((data[a].profile.full_name = searchName)) {
+    // console.log(data[a].profile.full_name);
+  }
+}
+
+//4
+for (let a = 0; a < data.length; a++) {
+  let array = data[a]["articles:"].length;
+  for (let b = 0; b < array; b++) {
+    console.log(data[a]["articles:"][b].published_at == "2020");
+  }
+}
+
+// 5
+for (let a = 0; a < data.length; a++) {
+  let d = data[a].profile.birthday;
+  let newdate = new Date(d);
+  let Year = newdate.getFullYear();
+  if (Year === 1986) {
+    console.log(data[a].username);
+  }
+}
