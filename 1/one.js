@@ -1,8 +1,6 @@
 const fs = require("fs");
 const rawdata = fs.readFileSync("orders.json");
-// console.log(rawdata);
 const data = JSON.parse(rawdata);
-// console.log(data);
 
 // #1.
 for (let i = 0; i < data.length; i++) {
