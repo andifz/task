@@ -1,7 +1,3 @@
-// const { profile } = require("console");
-
-const { log } = require("console");
-
 let data = [
   {
     id: 323,
@@ -131,10 +127,29 @@ let uniq = [...new Set(newArray)];
 for (let a = 0; a < data.length; a++) {
   let d = data[a].profile.birthday;
   let newdate = new Date(d);
-  // console.log(newdate);
   let Year = newdate.getFullYear();
-  // console.log(Year);
   if (Year === 1986) {
-    console.log(data[a].username);
+    // console.log(data[a].username);
+  }
+}
+
+// #6
+for (let a = 0; a < data.length; a++) {
+  for (let b = 0; b < data[a]["articles:"].length; b++) {
+    if (data[a]["articles:"][b].title.match(/tips/i)) {
+      // console.log(data[a]["articles:"][b].title);
+    }
+  }
+}
+
+// #7
+for (let a = 0; a < data.length; a++) {
+  for (let b = 0; b < data[a]["articles:"].length; b++) {
+    const d = data[a]["articles:"][b].published_at;
+    let newdate = new Date(d);
+    let month = newdate.getMonth() + 1;
+    if (month < 8) {
+      console.log(data[a]["articles:"][b].published_at);
+    }
   }
 }
