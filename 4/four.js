@@ -1,4 +1,6 @@
-const { profile } = require("console");
+// const { profile } = require("console");
+
+const { log } = require("console");
 
 let data = [
   {
@@ -107,25 +109,31 @@ for (let a = 0; a < data.length; a++) {
   let dataName = data[a].profile.full_name;
   let name = dataName.toLowerCase();
   let search = /annis/;
-  let searchName = name.match(search);
+  let searchName = name.match(new RegExp(search));
   if ((data[a].profile.full_name = searchName)) {
-    // console.log(data[a].profile.full_name);
+    // console.log(data[a].username);
   }
 }
 
 //4
+let newArray = [];
 for (let a = 0; a < data.length; a++) {
   let array = data[a]["articles:"].length;
   for (let b = 0; b < array; b++) {
-    console.log(data[a]["articles:"][b].published_at == "2020");
+    if (data[a]["articles:"][b].published_at.match(/2019/)) {
+      newArray.push(data[a].username);
+    }
   }
 }
+let uniq = [...new Set(newArray)];
 
 // 5
 for (let a = 0; a < data.length; a++) {
   let d = data[a].profile.birthday;
   let newdate = new Date(d);
+  // console.log(newdate);
   let Year = newdate.getFullYear();
+  // console.log(Year);
   if (Year === 1986) {
     console.log(data[a].username);
   }
