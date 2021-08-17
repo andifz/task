@@ -1,7 +1,5 @@
 const axios = require("axios");
 
-// let posts = 'https://jsonplaceholder.typicode.com/posts'
-// let users = 'https://jsonplaceholder.typicode.com/users'
 async function getPosts() {
   try {
     const response = await axios.get(
@@ -21,6 +19,3 @@ async function getUsers() {
     console.log(err);
   }
 }
-
-console.log(getPosts());
-console.log(getUsers());
