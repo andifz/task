@@ -1,14 +1,7 @@
 const axios = require("axios").default;
 
-async function getPosts() {
-  try {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
+async function getData(url) {
+  return (await axios.get(url)).data;
 }
 
 async function getUsers() {
