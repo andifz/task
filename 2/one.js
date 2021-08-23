@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require("axios").default;
 
 async function getPosts() {
   try {
@@ -19,3 +19,10 @@ async function getUsers() {
     console.log(err);
   }
 }
+
+async function mergeData() {
+  let posts = getPosts;
+  let users = getUsers;
+  console.log(posts);
+}
+mergeData();

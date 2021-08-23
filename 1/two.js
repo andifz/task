@@ -6,7 +6,7 @@ const price = [];
 for (let i = 0; i < orders.length; i++) {
   if (orders[i].customer.name === "Ari") {
     for (let a = 0; a < orders[i].items.length; a++) {
-      let barang = orders[i].items[a].price;
+      let barang = orders[i].items[a].price * orders[i].items[a].qty;
       price.push(barang);
     }
   }

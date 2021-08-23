@@ -8,7 +8,7 @@ for (let a = 0; a < data.length; a++) {
     let newdate = new Date(d);
     let month = newdate.getMonth() + 1;
     if (month < 8) {
-      console.log(data[a]["articles:"][b].published_at);
+      console.log(data[a]["articles:"][b]);
     }
   }
 }
