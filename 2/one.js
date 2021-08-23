@@ -4,18 +4,20 @@ async function getData(url) {
   return (await axios.get(url)).data;
 }
 
-async function getUsers() {
-  try {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-    console.log(res);
-  } catch (err) {
-    console.log(err);
+async function mergeData() {
+  let posts = await getData("https://jsonplaceholder.typicode.com/posts");
+  let users = await getData("https://jsonplaceholder.typicode.com/users");
+  let array = [];
+  for (let a = 0; a < posts.length; a++) {
+    for (let b = 0; b < users.length; b++) {
+      if (posts[a].userId === users[b].id) {
+        const { ...data } = posts[a];
+        data.user = users[b];
+        array.push(data);
+      }
+    }
   }
+  console.log(array);
 }
 
-async function mergeData() {
-  let posts = getPosts;
-  let users = getUsers;
-  console.log(posts);
-}
 mergeData();
