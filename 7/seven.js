@@ -50,14 +50,18 @@ const name = async function () {
     const response = await axios.get("https://randomuser.me/api/?results=20");
     let data = response.data.results;
 
-    let datas = data.map((a) => {
-      a.fullname = `${a.name.title}  ${a.name.first}  ${a.name.last}`;
-
-      return a;
-    });
-    const [{ fullname, phone, email }] = datas;
-    let dataObject = JSON.stringify({ fullname, name, phone });
-    fs.writeFileSync("data.csv", dataObject);
+    var a = data
+      .map((b) => {
+        var c = {
+          name: b.name.first,
+          phone: b.phone,
+          email: b.email,
+        };
+        return Object.values(c).toString();
+      })
+      .join("\n");
+    console.log(a);
+    fs.writeFileSync("a.csv", a);
   } catch (error) {
     console.error(error);
   }

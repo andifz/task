@@ -2,8 +2,8 @@ const fs = require("fs");
 const rawdata = fs.readFileSync("data.json");
 const data = JSON.parse(rawdata);
 
-for (let a = 0; a < data.length; a++) {
-  if (data[a].profile.phones[0] === undefined) {
-    console.log(data[a].username);
+data.map((a) => {
+  if (a.profile.phones.length === 0) {
+    console.log(a.username);
   }
-}
+});

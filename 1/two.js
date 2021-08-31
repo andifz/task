@@ -13,4 +13,3 @@ for (let i = 0; i < orders.length; i++) {
 }
 
 let total = price.reduce((a, b) => a + b);
-console.log(total);
